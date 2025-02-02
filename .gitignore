@@ -1,0 +1,7 @@
+*~
+*.tmp
+*.temp
+temp/
+tmp/
+cache/
+venv/
