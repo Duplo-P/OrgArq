@@ -1,10 +1,10 @@
 # OrgArq
 
- OrgArq é um organizador de arquivos que utiliza a biblioteca tkinter para criar uma interface gráfica que permite ao usuário selecionar um diretório. O programa então organiza os arquivos nesse diretório em subpastas com base em suas extensões. Aqui está um resumo da funcionalidade do meu programa:
+  OrgArq é um organizador de arquivos que utiliza a biblioteca tkinter para criar uma interface gráfica que permite ao usuário selecionar um diretório. O programa então organiza os arquivos nesse diretório em subpastas com base em suas extensões. Aqui está um resumo da funcionalidade do meu programa:
 
 ## Organizador de Arquivos
 
- Este programa é um organizador de arquivos que permite ao usuário selecionar um diretório e organiza os arquivos nesse diretório em subpastas com base em suas extensões. As categorias de arquivos suportadas incluem imagens, vídeos, documentos, arquivos compactados, executáveis e áudios.
+  Este programa é um organizador de arquivos que permite ao usuário selecionar um diretório e organiza os arquivos nesse diretório em subpastas com base em suas extensões. As categorias de arquivos suportadas incluem imagens, vídeos, documentos, arquivos compactados, executáveis e áudios.
 
 ## Funcionalidades
 **Seleção de Diretório**: Utiliza uma interface gráfica para permitir que o usuário selecione o diretório a ser organizado.
