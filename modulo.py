@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import filedialog
-from tkinter import messagebox
+#from tkinter import messagebox
 import os
 
 
@@ -22,9 +22,8 @@ def mover(NomePasta, arquivos):
         os.mkdir(NomePasta)
     os.rename(os.getcwd() + "/" + arquivos, os.getcwd() + "/" + NomePasta + "/" + arquivos)
 
-def moverDoc(NomePasta, arquivos):
-    mover(NomePasta, arquivos)
-    
+def moverDoc(NomePasta):
+        
     os.chdir(NomePasta)
     lista_doc = os.listdir(os.getcwd()) 
 
@@ -46,13 +45,16 @@ def organizar_arquivos():
     lista_arquivos = os.listdir(caminho)
     for i in lista_arquivos:
         if i.endswith(extensao_doc):
-            moverDoc("Arquivos Documentos", i)
+            mover("Arquivos Documentos", i)
         
         elif i.endswith(extensoes_imagem):
             mover("Arquivos Imagens", i)
             
         elif i.endswith(extensao_video):
            mover("Arquivos Videos", i)
+           
+        elif i.endswith(extensao_audio):
+           mover("Arquivos Áudios", i)
            
         elif i.endswith(extensao_zip):
             mover("Arquivos Compactados", i)
@@ -61,3 +63,4 @@ def organizar_arquivos():
             mover("Arquivos Executaveis", i)
         else:
             mover("Arquivos Outros", i)
+    moverDoc("Arquivos Documentos")
