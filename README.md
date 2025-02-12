@@ -21,7 +21,7 @@
 
     >__Arquivos Compactados__: .zip, .rar, .7z, .tar, .gz, .bz2, .xz
 
-    >__Executáveis__: .exe, .bat, .sh, .bin, .cmd, .com, .msi, .jar, .py, .pl
+>__Executáveis__: .exe, .bat, .sh, .bin, .cmd, .com, .msi, .jar, .py, .pl
 
 **Criação de Subpastas**: Cria subpastas automaticamente se elas não existirem.
 
