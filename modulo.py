@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import filedialog
-#from tkinter import messagebox
+from tkinter import messagebox
 import os
 
 
@@ -18,27 +18,33 @@ def get_path():
     return path
 
 def mover(NomePasta, arquivos):
-    if not os.path.exists(NomePasta):
-        os.mkdir(NomePasta)
-    os.rename(os.getcwd() + "/" + arquivos, os.getcwd() + "/" + NomePasta + "/" + arquivos)
-
-def moverDoc(NomePasta):
+    try:
+        if not os.path.exists(NomePasta):
+            os.mkdir(NomePasta)
+        os.rename(os.getcwd() + "/" + arquivos, os.getcwd() + "/" + NomePasta + "/" + arquivos)
+    except: 
+        messagebox.showerror("Erro", "Erro ao mover arquivo")
         
-    os.chdir(NomePasta)
-    lista_doc = os.listdir(os.getcwd()) 
+def moverDoc(NomePasta):
+    try:
+        os.chdir(NomePasta)
+        lista_doc = os.listdir(os.getcwd()) 
 
-    for i in lista_doc:
-        for ext in extensao_doc:
-            if i.endswith(ext):
-                if not os.path.exists(ext):
-                    os.mkdir(ext)
-                os.rename(os.getcwd() + "/" + i, os.getcwd() + "/" + ext + "/" + i)
-                break
-        else:
-            if not os.path.exists("Arquivos Outros"):
-                os.mkdir("Arquivos Outros")
-            os.rename(os.getcwd() + "/" + i, os.getcwd() + "/Arquivos Outros/" + i)
-     
+        for i in lista_doc:
+            if os.path.isdir(i):
+                continue
+            for ext in extensao_doc:
+                if i.endswith(ext):
+                    if not os.path.exists(ext):
+                        os.mkdir(ext)
+                    os.rename(os.getcwd() + "/" + i, os.getcwd() + "/" + ext + "/" + i)
+                    break
+            else:
+                if not os.path.exists("Arquivos Outros"):
+                    os.mkdir("Arquivos Outros")
+                os.rename(os.getcwd() + "/" + i, os.getcwd() + "/Arquivos Outros/" + i)
+    except:
+        messagebox.showerror("Erro", "Erro ao mover arquivo")
 def organizar_arquivos():
     caminho = get_path()
     os.chdir(caminho)
@@ -62,5 +68,9 @@ def organizar_arquivos():
         elif i.endswith(extensao_exe):
             mover("Arquivos Executaveis", i)
         else:
-            mover("Arquivos Outros", i)
+            if os.path.isdir(i):
+                continue
+            else:
+                mover("Arquivos Outros", i)
     moverDoc("Arquivos Documentos")
+    messagebox.showinfo("Organização de Arquivos", "Arquivos organizados com sucesso!")
